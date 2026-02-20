@@ -6,6 +6,7 @@ on:
     branches: [ "main" ]
     paths:
       - "scoreboard_death_back/**"
+      - ".github/workflows/push-ci-build.yml"
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -16,14 +17,14 @@ jobs:
           fetch-depth: 0
 
       - name: set up MCDReforged with venv
-        run:
+        run: |
           cd scoreboard_death_back
           python3 -m venv .venv
           source .venv/bin/activate
           python3 -m pip install mcdreforged
 
       - name: Pack MCDReforged Plugin
-        run:
+        run: |
           cd scoreboard_death_back
           source .venv/bin/activate
           python -m mcdreforged pack

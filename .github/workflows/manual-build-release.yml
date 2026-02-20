@@ -70,14 +70,14 @@ jobs:
 
       - name: set up MCDReforged with venv
         working-directory: ./scoreboard_death_back
-        run:
+        run: |
           python3 -m venv .venv
           source .venv/bin/activate
           python3 -m pip install mcdreforged
 
       - name: Pack MCDReforged Plugin
         working-directory: ./scoreboard_death_back
-        run:
+        run: |
           source .venv/bin/activate
           python -m mcdreforged pack
 
