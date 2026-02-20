@@ -49,8 +49,11 @@ jobs:
             esac
           fi
           NEW_VERSION="$MAJOR.$MINOR.$PATCH"
-          jq '.version = $NEW_VERSION' mcdreforged.plugin.json > mcdreforged.plugin.json.tmp
-          mv mcdreforged.plugin.json.tmp mcdreforged.plugin.json
+          tmp=$(mktemp)
+          jq --arg NEW_VERSION "$NEW_VERSION" \
+           '.version = $NEW_VERSION' \
+           mcdreforged.plugin.json > "$tmp" \
+           && mv "$tmp" mcdreforged.plugin.json
           echo "VERSION=$NEW_VERSION" >> "$GITHUB_ENV"
 
       - name: Push to Repo
