@@ -1,4 +1,7 @@
 # Scoreboard Death Back
+> [!WARNING]
+> 可用性：目前插件仍在测试阶段，可能存在未兼容的情况。
+
 `Scoreboard Death Back`是一个基于游戏内计分板（`Scoreboard`）的 **死亡回溯** MCDReforged 插件。
 
 主要适配给部署了 MCDReforged 的**模组服务器**，当出现模组特有的死亡方式时基于字符串判断的方案就不能正常工作了。
