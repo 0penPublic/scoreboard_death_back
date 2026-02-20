@@ -1,0 +1,13 @@
+{
+    "id": "scoreboard_death_back",
+    "version": "0.1.0",
+    "name": "DeathBack Based on Scoreboard Changes",
+    "description": "A plugin to handle player death back using scoreboard changes.",
+    "author": "VictorModi",
+    "link": "https://github.com/0penPublic/scoreboard_death_back",
+    "dependencies": {
+        "mcdreforged": ">=2.1.0",
+        "minecraft_data_api": ">=1.4.0",
+        "online_player_api": ">=1.2.0"
+    }
+}
