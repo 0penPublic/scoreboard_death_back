@@ -1,7 +1,7 @@
 {
     "id": "scoreboard_death_back",
     "version": "0.1.0",
-    "name": "DeathBack Based on Scoreboard Changes",
+    "name": "Score Board Death Back",
     "description": "A plugin to handle player death back using scoreboard changes.",
     "author": "VictorModi",
     "link": "https://github.com/0penPublic/scoreboard_death_back",
