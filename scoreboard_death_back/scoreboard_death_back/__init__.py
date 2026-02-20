@@ -69,9 +69,11 @@ def on_info(_: PluginServerInterface, info: Info) -> None:
             check_death(config.scoreboard_name, player, exec_mgr)
         finally:
             lock.release()
+
             def remove_later(p: str) -> None:
                 time.sleep(.1)
                 with _recently_lock:
                     _recently_processed.discard(p)
+
             Thread(target=remove_later, args=(player,), daemon=True).start()
         break

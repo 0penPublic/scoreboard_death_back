@@ -1,3 +1,4 @@
+import shutil
 import tarfile
 from datetime import datetime
 from pathlib import Path
@@ -12,6 +13,8 @@ def backup_if_exist(path: str, backup_dir: str) -> None:
 
         with tarfile.open(backup_path, "w:gz") as tar:
             tar.add(p, arcname=p.name)
+        shutil.rmtree(p)
+        p.mkdir(parents=True, exist_ok=True)
 
 
 def create_if_not_exist(path: str) -> None:
