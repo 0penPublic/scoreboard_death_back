@@ -12,5 +12,6 @@ class Config(Serializable):
         "has the following entity data",
         "has made the advancement",
         "joined the game",
-        "logged in with entity id"
+        "logged in with entity id",
+        "left the game"
     ]

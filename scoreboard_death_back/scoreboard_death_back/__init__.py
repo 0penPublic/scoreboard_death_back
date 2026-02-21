@@ -22,6 +22,13 @@ _recently_processed: Set[str] = set()
 _recently_lock: Lock = Lock()
 
 
+def _remove_and_recreate_scoreboard(server: PluginServerInterface) -> None:
+    global config
+    scoreboard_name: Final[str] = config.scoreboard_name
+    server.execute(f"scoreboard objectives remove {scoreboard_name}")
+    server.execute(f"scoreboard objectives add {scoreboard_name} deathCount")
+
+
 def on_load(server: PluginServerInterface, _) -> None:
     global config, exec_mgr
     config = server.load_config_simple(target_class=Config, failure_policy='raise')
@@ -34,13 +41,11 @@ def on_load(server: PluginServerInterface, _) -> None:
                 lambda command_src: do_death_back(command_src)
             )
         )
+    _remove_and_recreate_scoreboard(server)
 
 
 def on_server_startup(server: PluginServerInterface) -> None:
-    global config
-    scoreboard_name: Final[str] = config.scoreboard_name
-    server.execute(f"scoreboard objectives remove {scoreboard_name}")
-    server.execute(f"scoreboard objectives add {scoreboard_name} deathCount")
+    _remove_and_recreate_scoreboard(server)
 
 
 def on_info(_: PluginServerInterface, info: Info) -> None:
