@@ -1,2 +1,29 @@
-/.venv/
-/.idea/
+# virtual environment
+.venv/
+venv/
+env/
+
+# IDE
+.idea/
+.vscode/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# build
+dist/
+build/
+
+# MCDR
+*.mcdr
+
+# OS files
+.DS_Store
+.DS_Store?
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+.Spotlight-V100
+.Trashes
+._*

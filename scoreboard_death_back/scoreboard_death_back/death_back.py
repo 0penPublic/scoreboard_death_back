@@ -25,11 +25,10 @@ def check_death(scoreboard_name: str, player_name: str, exec_mgr: ExecuteManager
         player_name,
         scoreboard_name
     ]
-    output_regex: Final[re.Pattern] = re.compile(
-        rf"{player_name} has (?P<score>-?\d+) \[{scoreboard_name}]$"
+    output_regex: Final[re.Pattern[str]] = re.compile(
+        rf".+ has (?P<score>-?\d+) \[{re.escape(scoreboard_name)}]$"
     )
-
-    response: Optional[str] = exec_mgr.run(query_command, output_regex, timeout=.3)
+    response: Optional[str] = exec_mgr.run(query_command, output_regex, timeout=.1)
     if not response:
         return
     match: Optional[re.Match] = output_regex.match(response)
